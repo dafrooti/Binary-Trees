@@ -26,11 +26,13 @@ def search(root, key):
         return -1
 
 def mostleft(root):
+    # if root is None:
+
     if root == None:
         return None
     while root.left:
         root = root.left
-    return root.left
+    return root.value
 
 def inorder_traversal(root):
     if root.left != None:
