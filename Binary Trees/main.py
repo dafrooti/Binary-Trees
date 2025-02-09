@@ -34,6 +34,13 @@ def mostleft(root):
         root = root.left
     return root.value
 
+def mostright(root):
+    if root == None:
+        return None
+    while root.right:
+        root = root.right
+    return root.value
+
 def inorder_traversal(root):
     if root.left != None:
         inorder_traversal(root.left)
@@ -61,11 +68,12 @@ root = None
 while True:
     print("Press 1 to make the nodes")
     print("Press 1.5 for the smallest value")
-    print("Press 2 to search for values")
-    print("Press 3 for inorder traversal")
-    print("Press 4 for preorder traversal")
-    print("Press 5 for postorder traversal")
-    print("Press 6 to exit")
+    print("Press 2 for the largest value")
+    print("Press 3 to search for values")
+    print("Press 4 for inorder traversal")
+    print("Press 5 for preorder traversal")
+    print("Press 6 for postorder traversal")
+    print("Press 7 to exit")
 
     choice = (input("Enter option: "))
 
@@ -77,20 +85,23 @@ while True:
 
     if choice == "1.5":
         print(mostleft(root))
-
+        
     if choice == "2":
+        print(mostright(root))
+
+    if choice == "3":
         find = search(root, int(input("What number are you searching for: ")))
         if find == -1:
             print("Not Found")
         else:
             print("Key is found", find.value)
         
-    elif choice == "3":
-        inorder_traversal(root)
     elif choice == "4":
-        preorder_traversal(root)
+        inorder_traversal(root)
     elif choice == "5":
+        preorder_traversal(root)
+    elif choice == "6":
         postorder_traversal(root)
 
-    elif choice >= "6":
+    elif choice >= "7":
         break
